@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Family & Mobile Phones Survey</title>
   <style>
     :root {
@@ -59,17 +59,18 @@
       font-weight: 600;
     }
 
-    input[type="text"], input[type="number"], textarea {
-      padding: 10px 14px;
-      border: 2px solid #ccc;
-      border-radius: 8px;
-      transition: border-color 0.3s, box-shadow 0.3s;
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
     }
 
-    input:focus, textarea:focus {
-      border-color: var(--primary);
-      box-shadow: 0 0 0 4px rgba(43, 103, 119, 0.1);
-      outline: none;
+    .options label {
+      font-weight: normal;
+    }
+
+    input[type="radio"] {
+      margin-right: 10px;
     }
 
     .buttons {
@@ -109,13 +110,9 @@
       transition: width 0.5s ease;
     }
 
-    /* Popup Styling */
     .popup {
       position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
+      top: 0; left: 0; right: 0; bottom: 0;
       background: rgba(0,0,0,0.5);
       display: flex;
       align-items: center;
@@ -174,223 +171,6 @@
       to { stroke-dashoffset: 0; }
     }
 
-    @media (max-width: 600px) {
-      .form-container {
-        padding: 20px;
-      }
-    }
-    /* Styling for error popup */
-.error-popup {
-  position: fixed;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #ff4c4c;
-  color: white;
-  padding: 15px;
-  border-radius: 5px;
-  display: none;
-  z-index: 1000;
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
-}
-
-.error-popup.show {
-  display: block;
-  opacity: 1;
-}
-
-.error-popup-content {
-  display: flex;
-  align-items: center;
-}
-
-.error-close-btn {
-  margin-left: 20px;
-  cursor: pointer;
-  font-size: 20px;
-  font-weight: bold;
-  color: white;
-  transition: transform 0.2s ease;
-}
-
-.error-close-btn:hover {
-  transform: scale(1.2);
-}
-
-  </style>
-</head>
-<body>
-  <!-- Hidden iframe for silent submission -->
-  <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
-
-  <!-- Form -->
-  <form class="form-container" id="surveyForm" action="https://docs.google.com/forms/d/e/1FAIpQLSdiGE3xTrUOxOHQrZ7XRGCl0pX3G7F2PJ1YN6-qxBE4fIz5Ew/formResponse" method="POST" target="hidden_iframe">
-    <div class="progress-container">
-      <div class="progress-bar" id="progressBar"></div>
-    </div>
-
-    <!-- Steps -->
-    <div class="form-step active">
-      <label for="age">Age:</label>
-      <input type="text" name="entry.1997222188" required>
-    </div>
-
-    <div class="form-step">
-      <label for="gender">Gender:</label>
-      <input type="text" name="entry.370825489" required>
-    </div>
-
-    <div class="form-step">
-      <label for="marital">Marital Status:</label>
-      <input type="text" name="entry.331380550" required>
-    </div>
-
-    <div class="form-step">
-      <label for="members">Number of Family Members:</label>
-      <input type="text" name="entry.210108576" required>
-    </div>
-
-    <div class="form-step">
-      <label>How many hours do you spend on your mobile phone daily?</label>
-      <input type="text" name="entry.1393883384" required>
-    </div>
-
-    <div class="form-step">
-      <label>Do you think mobile phone use affects communication between family members?</label>
-      <input type="text" name="entry.224229122" required>
-    </div>
-
-    <div class="form-step">
-      <label>Do you notice your family members using their phones during family gatherings?</label>
-      <input type="text" name="entry.1693559329" required>
-    </div>
-
-    <div class="form-step">
-      <label>Do you prefer spending time with your family or on your mobile phone?</label>
-      <input type="text" name="entry.1986923524" required>
-    </div>
-
-    <div class="form-step">
-      <label>Do mobile phones cause conflicts or problems among family members?</label>
-      <input type="text" name="entry.817480594" required>
-    </div>
-
-    <div class="form-step">
-      <label>Are there any rules or agreements in your home to regulate phone use?</label>
-      <input type="text" name="entry.1718002770" required>
-    </div>
-
-    <div class="form-step">
-      <label>How do you think mobile phones have affected your relationship with your family?</label>
-      <textarea name="entry.2036653427" required></textarea>
-    </div>
-
-    <div class="form-step">
-      <label>What are your suggestions for improving family communication in the age of mobile phone use?</label>
-      <textarea name="entry.878785948" required></textarea>
-    </div>
-
-    <div class="buttons">
-      <button type="button" id="prevBtn">Back</button>
-      <button type="button" id="nextBtn">Next</button>
-    </div>
-  </form>
-
-  <!-- Popup -->
-  <div class="popup" id="popup">
-    <div class="popup-content">
-      <button class="close-popup" onclick="closePopup()">&times;</button>
-      <svg viewBox="0 0 52 52">
-        <path d="M14 27 l10 10 l15 -20" />
-      </svg>
-      <h3>Thank you for your time!</h3>
-    </div>
-  </div>
-<!-- Error Popup -->
-<div id="errorPopup" class="error-popup">
-  <div class="error-popup-content">
-    <p>Please fill out this field</p>
-    <span id="closeErrorPopup" class="error-close-btn">×</span>
-  </div>
-</div>
-
-<script>
-  const form = document.getElementById('surveyForm');
-  const steps = document.querySelectorAll('.form-step');
-  const nextBtn = document.getElementById('nextBtn');
-  const prevBtn = document.getElementById('prevBtn');
-  const progressBar = document.getElementById('progressBar');
-  const errorPopup = document.getElementById("errorPopup");
-  const closeErrorPopup = document.getElementById("closeErrorPopup");
-  let currentStep = 0;
-
-  function showStep(index) {
-    steps.forEach((step, i) => {
-      step.classList.toggle('active', i === index);
-    });
-    progressBar.style.width = ((index + 1) / steps.length) * 100 + '%';
-    prevBtn.style.display = index === 0 ? 'none' : 'inline-block';
-    nextBtn.textContent = index === steps.length - 1 ? 'Submit' : 'Next';
-  }
-
-  nextBtn.addEventListener('click', (e) => {
-    e.preventDefault();  // Prevent the form from submitting
-
-    const inputs = steps[currentStep].querySelectorAll('input, textarea');
-    let valid = true;
-    
-    // Check if any required field is empty
-    inputs.forEach(input => {
-      if (input.required && !input.value.trim()) {
-        valid = false;
-      }
-    });
-
-    // Show error popup if any required field is empty
-    if (!valid) {
-      errorPopup.classList.add("show");
-      closeErrorPopup.classList.add("error-close-btn-animation");
-      return;
-    }
-
-    // If it's the last step, submit the form
-    if (currentStep === steps.length - 1) {
-      form.submit();
-      showPopup();
-      return;
-    }
-
-    currentStep++;
-    showStep(currentStep);
-  });
-
-  prevBtn.addEventListener('click', () => {
-    if (currentStep > 0) {
-      currentStep--;
-      showStep(currentStep);
-    }
-  });
-
-  function showPopup() {
-    document.getElementById('popup').style.display = 'flex';
-  }
-
-  function closePopup() {
-    document.getElementById('popup').style.display = 'none';
-  }
-
-  // Close the error popup when the 'X' button is clicked
-  closeErrorPopup.addEventListener("click", function () {
-    errorPopup.classList.remove("show");
-  });
-
-  showStep(currentStep);
-
-  // Error Popup styles
-  const style = document.createElement('style');
-  style.innerHTML = `
-    /* Styling for error popup */
     .error-popup {
       position: fixed;
       top: 20px;
@@ -428,21 +208,271 @@
     .error-close-btn:hover {
       transform: scale(1.2);
     }
+  </style>
+</head>
+<body>
 
-    /* Close button animation */
-    .error-close-btn-animation {
-      animation: error-close-btn-animation 0.5s ease-in-out;
+  <form class="form-container" id="surveyForm" action="https://docs.google.com/forms/d/e/1FAIpQLSdiGE3xTrUOxOHQrZ7XRGCl0pX3G7F2PJ1YN6-qxBE4fIz5Ew/formResponse" method="POST">
+
+    <div class="progress-container">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <div class="form-step active">
+      <label>Age:</label>
+      <div class="options">
+        <label><input type="radio" name="entry.1997222188" value="Under 18" required>Under 18</label>
+        <label><input type="radio" name="entry.1997222188" value="18-30">18–30</label>
+        <label><input type="radio" name="entry.1997222188" value="31-45">31–45</label>
+        <label><input type="radio" name="entry.1997222188" value="46+">46+</label>
+      </div>
+    </div>
+
+    <div class="form-step">
+      <label>Gender:</label>
+      <div class="options">
+        <label><input type="radio" name="entry.370825489" value="Male" required>Male</label>
+        <label><input type="radio" name="entry.370825489" value="Female">Female</label>
+      </div>
+    </div>
+
+    <div class="form-step">
+      <label>Marital Status:</label>
+      <div class="options">
+        <label><input type="radio" name="entry.331380550" value="Single" required>Single</label>
+        <label><input type="radio" name="entry.331380550" value="Married">Married</label>
+        <label><input type="radio" name="entry.331380550" value="Divorced">Divorced</label>
+      </div>
+    </div>
+
+    <div class="form-step">
+      <label>Number of Family Members:</label>
+      <div class="options">
+        <label><input type="radio" name="entry.210108576" value="1-2" required>1–2</label>
+        <label><input type="radio" name="entry.210108576" value="3-5">3–5</label>
+        <label><input type="radio" name="entry.210108576" value="6+">6+</label>
+      </div>
+    </div>
+
+    <div class="form-step">
+      <label>How many hours do you spend on your mobile phone daily?</label>
+      <div class="options">
+        <label><input type="radio" name="entry.1393883384" value="Less than 1 hour" required>Less than 1 hour</label>
+        <label><input type="radio" name="entry.1393883384" value="1-3 hours">1–3 hours</label>
+        <label><input type="radio" name="entry.1393883384" value="4-6 hours">4–6 hours</label>
+        <label><input type="radio" name="entry.1393883384" value="7+ hours">7+ hours</label>
+      </div>
+    </div>
+
+    <div class="form-step">
+      <label>Does mobile phone use affect communication in your family?</label>
+      <div class="options">
+        <label><input type="radio" name="entry.224229122" value="Yes" required>Yes</label>
+        <label><input type="radio" name="entry.224229122" value="No">No</label>
+      </div>
+    </div>
+
+    <div class="form-step">
+      <label>Do family members use phones during gatherings?</label>
+      <div class="options">
+        <label><input type="radio" name="entry.1693559329" value="Always" required>Always</label>
+        <label><input type="radio" name="entry.1693559329" value="Sometimes">Sometimes</label>
+        <label><input type="radio" name="entry.1693559329" value="Never">Never</label>
+      </div>
+    </div>
+
+    <div class="form-step">
+      <label>Do you prefer family time or phone use?</label>
+      <div class="options">
+        <label><input type="radio" name="entry.1986923524" value="Family" required>Family</label>
+        <label><input type="radio" name="entry.1986923524" value="Phone">Phone</label>
+      </div>
+    </div>
+
+    <div class="form-step">
+      <label>Do mobile phones enhance or reduce family bonds?</label>
+      <div class="options">
+        <label><input type="radio" name="entry.1920754974" value="Enhance" required>Enhance</label>
+        <label><input type="radio" name="entry.1920754974" value="Reduce">Reduce</label>
+        <label><input type="radio" name="entry.1920754974" value="No impact">No impact</label>
+      </div>
+    </div>
+
+    <div class="form-step">
+      <label>Would you support phone-free family time?</label>
+      <div class="options">
+        <label><input type="radio" name="entry.2106667012" value="Yes" required>Yes</label>
+        <label><input type="radio" name="entry.2106667012" value="No">No</label>
+        <label><input type="radio" name="entry.2106667012" value="Maybe">Maybe</label>
+      </div>
+    </div>
+
+    <div class="form-step">
+      <label>Do mobile phones cause conflicts or problems among family members?</label>
+      <div class="options">
+        <label><input type="radio" name="entry.817480594" value="Yes" required>Yes</label>
+        <label><input type="radio" name="entry.817480594" value="Sometimes">Sometimes</label>
+        <label><input type="radio" name="entry.817480594" value="No">No</label>
+      </div>
+    </div>
+
+    <div class="form-step">
+      <label>Are there any rules or agreements in your home to regulate phone use?</label>
+      <div class="options">
+        <label><input type="radio" name="entry.1718002770" value="Yes" required>Yes</label>
+        <label><input type="radio" name="entry.1718002770" value="No">No</label>
+        <label><input type="radio" name="entry.1718002770" value="Unclear">Unclear</label>
+      </div>
+    </div>
+
+    <div class="form-step">
+      <label for="relationshipImpact">How do you think mobile phones have affected your relationship with your family?</label>
+      <textarea id="relationshipImpact" name="entry.2036653427" rows="4" style="width: 100%;" required></textarea>
+    </div>
+
+    <div class="form-step">
+      <label for="suggestions">What are your suggestions for improving family communication in the age of mobile phone use?</label>
+      <textarea id="suggestions" name="entry.878785948" rows="4" style="width: 100%;" required></textarea>
+    </div>
+
+    <div class="buttons">
+      <button type="button" id="prevBtn">Back</button>
+      <button type="button" id="nextBtn">Next</button>
+      <button type="submit" id="submitBtn" style="display:none;">Submit</button>
+    </div>
+  </form>
+
+  <div class="popup" id="successPopup">
+    <div class="popup-content">
+      <button class="close-popup" onclick="closePopup()">×</button>
+      <svg viewBox="0 0 100 100"><polyline points="25,53 43,70 75,35"></polyline></svg>
+      <h3>Thank you for your time!</h3>
+    </div>
+  </div>
+
+  <div class="error-popup" id="errorPopup">
+    <div class="error-popup-content">
+      Please select an answer before continuing.
+      <span class="error-close-btn" onclick="closeError()">×</span>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('surveyForm');
+    const steps = Array.from(document.querySelectorAll('.form-step'));
+    const nextBtn = document.getElementById('nextBtn');
+    const prevBtn = document.getElementById('prevBtn');
+    const submitBtn = document.getElementById('submitBtn');
+    const progressBar = document.getElementById('progressBar');
+    const successPopup = document.getElementById('successPopup');
+    const errorPopup = document.getElementById('errorPopup');
+
+    let currentStep = 0;
+
+    function updateStep() {
+      steps.forEach((step, index) => {
+        step.classList.toggle('active', index === currentStep);
+      });
+      prevBtn.style.display = currentStep > 0 ? 'inline-block' : 'none';
+      nextBtn.style.display = currentStep < steps.length - 1 ? 'inline-block' : 'none';
+      submitBtn.style.display = currentStep === steps.length - 1 ? 'inline-block' : 'none';
+      progressBar.style.width = ((currentStep + 1) / steps.length) * 100 + '%';
     }
 
-    @keyframes error-close-btn-animation {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.4); }
-      100% { transform: scale(1); }
+    function validateStep() {
+      const activeStep = steps[currentStep];
+      const radios = activeStep.querySelectorAll('input[type="radio"]');
+      const textareas = activeStep.querySelectorAll('textarea');
+
+      if (radios.length > 0) {
+        return Array.from(radios).some(input => input.checked);
+      }
+
+      if (textareas.length > 0) {
+        return Array.from(textareas).every(textarea => textarea.value.trim() !== '');
+      }
+
+      return true;
     }
-  `;
-  document.head.appendChild(style);
 
-</script>
+    function saveProgress() {
+      const formData = {};
 
+      form.querySelectorAll('input[type="radio"]').forEach(input => {
+        if (input.checked) {
+          formData[input.name] = input.value;
+        }
+      });
+
+      form.querySelectorAll('textarea').forEach(textarea => {
+        formData[textarea.name] = textarea.value;
+      });
+
+      localStorage.setItem('surveyData', JSON.stringify(formData));
+    }
+
+    function loadProgress() {
+      const data = JSON.parse(localStorage.getItem('surveyData') || '{}');
+
+      for (const [name, value] of Object.entries(data)) {
+        const field = form.querySelector(`[name="${name}"]`);
+        if (field) {
+          if (field.type === 'radio') {
+            const radio = form.querySelector(`input[name="${name}"][value="${value}"]`);
+            if (radio) radio.checked = true;
+          } else {
+            field.value = value;
+          }
+        }
+      }
+    }
+
+    form.addEventListener('input', saveProgress);
+
+    nextBtn.addEventListener('click', () => {
+      if (!validateStep()) {
+        errorPopup.classList.add('show');
+        return;
+      }
+      currentStep++;
+      updateStep();
+    });
+
+    prevBtn.addEventListener('click', () => {
+      currentStep--;
+      updateStep();
+    });
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+
+      try {
+        await fetch(form.action, {
+          method: 'POST',
+          mode: 'no-cors',
+          body: formData
+        });
+
+        localStorage.removeItem('surveyData');
+        successPopup.style.display = 'flex';
+      } catch (err) {
+        console.error('Submission failed', err);
+        alert('Something went wrong while submitting.');
+      }
+    });
+
+    function closePopup() {
+      successPopup.style.display = 'none';
+    }
+
+    function closeError() {
+      errorPopup.classList.remove('show');
+    }
+
+    loadProgress();
+    updateStep();
+  </script>
 </body>
 </html>
