@@ -201,3 +201,34 @@
   .error-close-btn:hover {
     transform: scale(1.2);
   }
+  #confetti {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 1000;
+    display: none;
+  }
+  
+  .confetti-piece {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #ff4c4c;
+    opacity: 0;
+    animation: confetti-animation 2s forwards;
+  }
+  
+  @keyframes confetti-animation {
+    0% {
+      transform: translateY(-100px) rotate(0deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(100vh) rotate(360deg);
+      opacity: 0;
+    }
+  }
+  
