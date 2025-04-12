@@ -114,3 +114,41 @@ function closeError() {
 
 loadProgress();
 updateStep();
+function generateConfetti() {
+  const confettiContainer = document.getElementById('confetti');
+  const numConfettiPieces = 100;
+  
+  for (let i = 0; i < numConfettiPieces; i++) {
+    const confetti = document.createElement('div');
+    confetti.classList.add('confetti-piece');
+    
+    // Randomize position
+    confetti.style.left = Math.random() * 100 + 'vw';
+    
+    // Randomize animation delay
+    confetti.style.animationDelay = Math.random() * 2 + 's';
+    
+    // Randomize color
+    confetti.style.backgroundColor = getRandomColor();
+    
+    confettiContainer.appendChild(confetti);
+  }
+}
+
+function getRandomColor() {
+  const letters = '0123456789ABCDEF';
+  let color = '#';
+  for (let i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
+
+document.getElementById('submitBtn').addEventListener('click', () => {
+  generateConfetti();
+  document.getElementById('confetti').style.display = 'block';
+  setTimeout(() => {
+    document.getElementById('confetti').style.display = 'none';
+  }, 3000);
+});
+
