@@ -5,9 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Bene Vivere Survey</title>
   <link rel="stylesheet" href="style.css">
-  <style>
-
-  </style>
 </head>
 <body>
 
@@ -17,86 +14,105 @@
       <div class="progress-bar" id="progressBar"></div>
     </div>
 
+    <!-- Name -->
     <div class="form-step active">
-      <label>Age:</label>
-      <div class="options">
-        <label><input type="radio" name="entry.249572901" value="Under 18" required>Under 18</label>
-        <label><input type="radio" name="entry.249572901" value="18-30">18–30</label>
-        <label><input type="radio" name="entry.249572901" value="31-45">31–45</label>
-        <label><input type="radio" name="entry.249572901" value="46+">46+</label>
-      </div>
-    </div>
-    <div class="form-step">
-      <label for="relationshipImpact">Name</label>
-      <textarea id="relationshipImpact" name="entry.1729336533" rows="1" style="width: 100%;" required></textarea>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="entry.1729336533" required>
     </div>
 
+    <!-- Grade -->
     <div class="form-step">
-      <label for="suggestions">Class</label>
-      <textarea id="suggestions" name="entry.779244183" rows="1" style="width: 100%;" required></textarea>
+      <label for="grade">Grade:</label>
+      <input type="text" id="grade" name="entry.249572901" required>
     </div>
 
+    <!-- Class -->
     <div class="form-step">
-      <label>Gender:</label>
-      <div class="options">
-        <label><input type="radio" name="entry.461663826" value="Male" required>Male</label>
-        <label><input type="radio" name="entry.461663826" value="Female">Female</label>
-      </div>
+      <label for="class">Class:</label>
+      <input type="text" id="class" name="entry.779244183" required>
     </div>
 
+    <!-- Phone Hours -->
     <div class="form-step">
-      <label>Number of Family Members:</label>
+      <label>How many hours do you spend daily using a mobile phone?</label>
       <div class="options">
-        <label><input type="radio" name="entry.756079957" value="1-2" required>1–2</label>
-        <label><input type="radio" name="entry.756079957" value="3-5">3–5</label>
-        <label><input type="radio" name="entry.756079957" value="6+">6+</label>
-      </div>
-    </div>
-
-    <div class="form-step">
-      <label>How many hours do you spend on your mobile phone daily?</label>
-      <div class="options">
-        <label><input type="radio" name="entry.691193247" value="Less than 1 hour" required>Less than 1 hour</label>
+        <label><input type="radio" name="entry.691193247" value="Less than an hour" required>Less than an hour</label>
         <label><input type="radio" name="entry.691193247" value="1-3 hours">1–3 hours</label>
         <label><input type="radio" name="entry.691193247" value="4-6 hours">4–6 hours</label>
-        <label><input type="radio" name="entry.691193247" value="7+ hours">7+ hours</label>
+        <label><input type="radio" name="entry.691193247" value="More than 6 hours">More than 6 hours</label>
       </div>
     </div>
 
+    <!-- Affects Communication -->
     <div class="form-step">
-      <label>Does mobile phone use affect communication in your family?</label>
+      <label>Do you think that using a mobile phone affects communication between family members?</label>
       <div class="options">
         <label><input type="radio" name="entry.960237671" value="Yes" required>Yes</label>
         <label><input type="radio" name="entry.960237671" value="No">No</label>
+        <label><input type="radio" name="entry.960237671" value="Sometimes">Sometimes</label>
       </div>
     </div>
 
+    <!-- Distracted at Gatherings -->
     <div class="form-step">
-      <label>Do family members use phones during gatherings?</label>
+      <label>Do you notice that your family members are distracted by their phones during family gatherings?</label>
       <div class="options">
         <label><input type="radio" name="entry.1027262413" value="Always" required>Always</label>
-        <label><input type="radio" name="entry.1027262413" value="Sometimes">Sometimes</label>
+        <label><input type="radio" name="entry.1027262413" value="Often">Often</label>
+        <label><input type="radio" name="entry.1027262413" value="Rarely">Rarely</label>
         <label><input type="radio" name="entry.1027262413" value="Never">Never</label>
       </div>
     </div>
 
+    <!-- Family or Phone Preference -->
     <div class="form-step">
-      <label>Do you prefer family time or phone use?</label>
+      <label>Do you prefer spending time with your family or on the mobile phone?</label>
       <div class="options">
-        <label><input type="radio" name="entry.1651254073" value="Family" required>Family</label>
-        <label><input type="radio" name="entry.1651254073" value="Phone">Phone</label>
+        <label><input type="radio" name="entry.1651254073" value="With family" required>With family</label>
+        <label><input type="radio" name="entry.1651254073" value="On the phone">On the phone</label>
+        <label><input type="radio" name="entry.1651254073" value="Depends on the mood">Depends on the mood</label>
       </div>
     </div>
 
+    <!-- Phone Conflict -->
+    <div class="form-step">
+      <label>Do mobile phones cause problems or conflicts between family members?</label>
+      <div class="options">
+        <label><input type="radio" name="entry.1426620970" value="Yes" required>Yes</label>
+        <label><input type="radio" name="entry.1426620970" value="No">No</label>
+        <label><input type="radio" name="entry.1426620970" value="Sometimes">Sometimes</label>
+      </div>
+    </div>
+
+    <!-- Rules at Home -->
+    <div class="form-step">
+      <label>Are there any family rules or agreements to regulate mobile phone use at home?</label>
+      <div class="options">
+        <label><input type="radio" name="entry.159097213" value="Yes" required>Yes</label>
+        <label><input type="radio" name="entry.159097213" value="No">No</label>
+      </div>
+    </div>
+
+    <!-- Enhance or Reduce Bonds -->
     <div class="form-step">
       <label>Do mobile phones enhance or reduce family bonds?</label>
       <div class="options">
         <label><input type="radio" name="entry.110686072" value="Enhance" required>Enhance</label>
         <label><input type="radio" name="entry.110686072" value="Reduce">Reduce</label>
-        <label><input type="radio" name="entry.110686072" value="No impact">No impact</label>
       </div>
     </div>
 
+    <!-- More than 1 Hour a Day -->
+    <div class="form-step">
+      <label>Do you use the mobile phone for more than an hour a day?</label>
+      <div class="options">
+        <label><input type="radio" name="entry.1690138637" value="Rarely" required>Rarely</label>
+        <label><input type="radio" name="entry.1690138637" value="Sometimes">Sometimes</label>
+        <label><input type="radio" name="entry.1690138637" value="Always">Always</label>
+      </div>
+    </div>
+
+    <!-- Phone-Free Family Time -->
     <div class="form-step">
       <label>Would you support phone-free family time?</label>
       <div class="options">
@@ -106,24 +122,67 @@
       </div>
     </div>
 
+    <!-- Eat While Using -->
     <div class="form-step">
-      <label>Do mobile phones cause conflicts or problems among family members?</label>
+      <label>Do you eat meals while using the mobile phone?</label>
       <div class="options">
-        <label><input type="radio" name="entry.1426620970" value="Yes" required>Yes</label>
-        <label><input type="radio" name="entry.1426620970" value="Sometimes">Sometimes</label>
-        <label><input type="radio" name="entry.1426620970" value="No">No</label>
+        <label><input type="radio" name="entry.1146548458" value="Rarely" required>Rarely</label>
+        <label><input type="radio" name="entry.1146548458" value="Sometimes">Sometimes</label>
+        <label><input type="radio" name="entry.1146548458" value="Always">Always</label>
       </div>
     </div>
 
+    <!-- Happy Talking with Family -->
     <div class="form-step">
-      <label>Are there any rules or agreements in your home to regulate phone use?</label>
+      <label>Do you feel happy when talking with your family?</label>
       <div class="options">
-        <label><input type="radio" name="entry.159097213" value="Yes" required>Yes</label>
-        <label><input type="radio" name="entry.159097213" value="No">No</label>
-        <label><input type="radio" name="entry.159097213" value="Unclear">Unclear</label>
+        <label><input type="radio" name="entry.133637116" value="Rarely" required>Rarely</label>
+        <label><input type="radio" name="entry.133637116" value="Sometimes">Sometimes</label>
+        <label><input type="radio" name="entry.133637116" value="Always">Always</label>
       </div>
     </div>
 
+    <!-- Put Down Phone Without Feeling Upset -->
+    <div class="form-step">
+      <label>Can you put down the mobile phone without feeling upset?</label>
+      <div class="options">
+        <label><input type="radio" name="entry.1252580983" value="Rarely" required>Rarely</label>
+        <label><input type="radio" name="entry.1252580983" value="Sometimes">Sometimes</label>
+        <label><input type="radio" name="entry.1252580983" value="Always">Always</label>
+      </div>
+    </div>
+
+    <!-- Participate in Decision-Making -->
+    <div class="form-step">
+      <label>Do you participate in decision-making at home?</label>
+      <div class="options">
+        <label><input type="radio" name="entry.701816579" value="Rarely" required>Rarely</label>
+        <label><input type="radio" name="entry.701816579" value="Sometimes">Sometimes</label>
+        <label><input type="radio" name="entry.701816579" value="Always">Always</label>
+      </div>
+    </div>
+
+    <!-- Enjoy Family Games -->
+    <div class="form-step">
+      <label>Do you enjoy family games or activities without using the mobile phone?</label>
+      <div class="options">
+        <label><input type="radio" name="entry.1032345738" value="Rarely" required>Rarely</label>
+        <label><input type="radio" name="entry.1032345738" value="Sometimes">Sometimes</label>
+        <label><input type="radio" name="entry.1032345738" value="Always">Always</label>
+      </div>
+    </div>
+
+    <!-- Daily Talk After School -->
+    <div class="form-step">
+      <label>Do you dedicate time daily to talk with your family after school?</label>
+      <div class="options">
+        <label><input type="radio" name="entry.758548405" value="Rarely" required>Rarely</label>
+        <label><input type="radio" name="entry.758548405" value="Sometimes">Sometimes</label>
+        <label><input type="radio" name="entry.758548405" value="Always">Always</label>
+      </div>
+    </div>
+
+    <!-- Navigation Buttons -->
     <div class="buttons">
       <button type="button" id="prevBtn">Back</button>
       <button type="button" id="nextBtn">Next</button>
@@ -131,6 +190,7 @@
     </div>
   </form>
 
+  <!-- Success Popup -->
   <div class="popup" id="successPopup">
     <div class="popup-content">
       <button class="close-popup" onclick="closePopup()">×</button>
@@ -139,13 +199,16 @@
     </div>
   </div>
 
+  <!-- Error Popup -->
   <div class="error-popup" id="errorPopup">
     <div class="error-popup-content">
       Please select an answer before continuing.
       <span class="error-close-btn" onclick="closeError()">×</span>
     </div>
   </div>
+
   <div id="confetti"></div>
-<script src="app.js"></script>
+
+  <script src="app.js"></script>
 </body>
 </html>
